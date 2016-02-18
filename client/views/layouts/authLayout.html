@@ -1,0 +1,31 @@
+<template name="authLayout">
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Sidenav -->
+			<div class="col-sm-1 col-md-2 sidebar" id="sidenav" role="navigation">
+				{{#if currentUser}}
+				<ul class="nav nav-sidebar">
+					<li class="hidden-xs" id="side-nav-uploads"><a href="/content/uploads/"><span class="visible-md visible-lg">Uploads</span></a></li>
+				</ul>
+				{{/if}}
+			</div>
+			<!-- /Sidenav -->
+			<!-- Main col -->
+			<div class="col-sm-11 col-sm-offset-1 col-md-10 col-md-offset-2 main"><!-- Main col -->
+				{{> loginButtons}}
+				{{#if currentUser}}
+					Logged In
+
+					{{> yield}}
+				{{else}}
+					<div class="jumbotron">
+						Please log in
+					</div>
+
+				{{/if}}
+
+
+			</div> <!-- /Main col -->
+		</div> <!-- /Main row -->
+	</div> <!-- /Container -->
+</template>
